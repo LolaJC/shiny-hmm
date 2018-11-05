@@ -16,7 +16,12 @@ shinyUI(pageWithSidebar(
                 "Lambda:", 
                 min = 1,
                 max = 30, 
-                value = 12)
+                value = 12),
+    sliderInput("lambda2", 
+                "Lambda:", 
+                min = 1,
+                max = 30, 
+                value = 6)
   ),
   
   # Show a plot of the generated distribution
