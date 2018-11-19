@@ -26,13 +26,20 @@ shinyServer(function(input, output) {
     out.model <- fit(model)
     viterbi.states <- posterior(out.model)[,1]
     
-    # Plot the sequence and add the estimated states
+    # Plot the sequence
     ggplot(data, aes(x = time ,y = seq, colour = state)) + 
       geom_line() +
       geom_point() +
-      scale_color_gradient(low="red", high="blue") +
+      # Change the colors
+      scale_color_gradient(low="red", high="black") +
+      # Change the theme
       theme_minimal() +
-     geom_point(data = as.data.frame(viterbi.states), mapping = aes( x = c(1:n), y = rep(-1, n), colour = viterbi.states) )
+      # Add estimated states
+      geom_point(data = as.data.frame(viterbi.states), mapping = aes( x = c(1:n), y = rep(-1, n), colour = viterbi.states)) +
+      # Modify title and axis names
+      labs(x = "Time", y = "Sequence", title = "Sequence vs. time") +
+      # Center the title
+      theme(plot.title = element_text(hjust = 0.5))
 
   })
 })
