@@ -26,6 +26,7 @@ shinyUI(pageWithSidebar(
   
   # Show a plot of the generated distribution
   mainPanel(
-    plotOutput("distPlot",  height = 600, width = "100%")
+    plotOutput("distPlot",  height = 600, width = "100%"),
+    helpText("Estimated states are displayed bellow the graph")
   )
 ))
